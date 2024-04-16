@@ -75,7 +75,6 @@ header("Content-type: text/html; charset=utf-8");
             </div>
             <form action="./index.php" method="get">
                 <fieldset>
-                    <legend>Te connaître</legend>
                 <div class="form-column">
                     <label for="pseudo">Pseudo :</label>
                     <input minlength="3" pattern="^[A-Za-z]+[\d\p{L}]{2,}" id="pseudo" type="text" name="pseudo" placeholder="Entrer votre pseudo" title="Le format attendu est de minimum 3 caractères" required="">

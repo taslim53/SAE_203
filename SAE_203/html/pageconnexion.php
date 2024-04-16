@@ -26,7 +26,7 @@
 ?><!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<title>TUTO PHP</title>
+		<title>SE CONNECTER</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="styles.css" type="text/css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
 					<input class="colspan-2" type="password" name="mdpconnect" placeholder="Mot de passe" aria-label="mot de passe"/>
 				</div>
 				<div class="row">
-					<input class="colspan-2" type="submit" name="formconnexion" value="Se connecter !" />
+					<input class="colspan-2" type="submit" name="formconnexion" value="Je me connecte !" />
 				</div>
 <?php
 	if(isset($erreur)) {
