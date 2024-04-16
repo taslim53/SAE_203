@@ -20,7 +20,6 @@
 		define("MYPASS","");
 	if(!defined("MYDB"))
 		define("MYDB","td_r215");
-		ok
 	*/
 ?>
 

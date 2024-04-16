@@ -1,4 +1,51 @@
 <?php
+    // inscription.php
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+	header("Content-Type: text/html; charset=utf-8") ;
+	
+	require (__DIR__ . "/param.inc.php");
+	
+	require (__DIR__ . "/src/Membres/Administrer.php");
+	
+	$administrerMembres = new Membres\Administrer(MYHOST, MYDB, MYUSER, MYPASS) ;
+	
+	if(isset($_POST['forminscription'])) {
+		if(!empty($_POST['pseudo']) 
+			AND !empty($_POST['mail']) 
+			AND !empty($_POST['mail2']) 
+			AND !empty($_POST['mdp']) 
+			AND !empty($_POST['mdp2'])) {
+			$pseudo = htmlspecialchars($_POST['pseudo']);
+			$mail = htmlspecialchars($_POST['mail']);
+			$mail2 = htmlspecialchars($_POST['mail2']);
+			$mdp = $_POST['mdp'];
+			$mdp2 = $_POST['mdp2'];
+
+			if($mail == $mail2) {
+				if($mdp == $mdp2) {
+					if(strlen($mdp)>= 4) {
+						try {
+							$administrerMembres->inscrire($pseudo, $mail, $mdp) ;
+						}
+						catch (Exception $e) {
+							$erreur = $e->getMessage() ;
+						}
+					} else {
+						$erreur = "Votre mot de passe doit posséder au moins 4 caractères !";
+					}
+				} else {
+					$erreur = "Vos mots de passes ne correspondent pas !";
+				}
+			} else {
+				$erreur = "Vos adresses mail ne correspondent pas !";
+			}
+		} else {
+			$erreur = "Tous les champs doivent être complétés !";
+		}
+	}
+?>
+<?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 header("Content-type: text/html; charset=utf-8");
@@ -41,49 +88,15 @@ header("Content-type: text/html; charset=utf-8");
                     <label for="message">Adresse mail :</label>
                     <input id="email" type="email" name="email" placeholder="Entrer votre adresse mail"></input>
                 </div>
+                <div class="form-column">
+                    <label for="mdp1">Ton mot de passe :</label>
+                    <input minlength="8" pattern="[A-a-\d]" id="mdp1" type="password" name="mdp1" placeholder="Entrer votre adresse mail"></input>
+                </div>
+                <div class="form-column">
+                    <label for="mdp2">Confirme ton mot de passe :</label>
+                    <input id="email" type="email" name="email" placeholder="Entrer votre adresse mail"></input>
+                </div>
                 </fieldset>
-
-
-                <?php
-                if (isset($_GET["nom"]) && isset($_GET["prenom"]) && isset($_GET["adresseMail"]) && isset($_GET["phone"]) && isset($_GET["message"])) {
-                    if (($_GET["nom"] != "") && ($_GET["prenom"] != "") && ($_GET["adresseMail"] != "") && ($_GET["phone"] != "") && ($_GET["message"] != "")) {
-                        require(__DIR__ . "/src/PHPMailer.php"); // Ajoute le fichier contenant le code de la classe PHPMailer
-                        require(__DIR__ . "/src/SMTP.php"); // le code de la classe SMTP
-                        require(__DIR__ . "/src/Exception.php"); // le code de la classe Exception
-                        $mail = new PHPMailer\PHPMailer\PHPMailer();
-                        // Configuration du serveur SMTP
-                        $mail->SMTPDebug = 0; // Active/désactive les messages de mise au point
-                        $mail->isSMTP(); // Utilise le protocole SMTP
-                        $mail->Host = "smtp.gmail.com"; // Configure le nom du serveur SMTP
-                        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS; // Active le cryptage sécurisé TLS
-                        $mail->Port = 465; // Configure le numéro de port
-                        $mail->SMTPAuth = true; // Active le mode authentification
-                        $mail->Username = "taslim.tifaoui@gmail.com"; // Identifiant du compte SMTP
-                        $mail->Password = "euzxbmltoynoaqjg"; // Mot de passe du compte SMTP // comm entre la page google et le formulaire
-                        // Destinataires
-                        $mail->setFrom("taslim.tifaoui@gmail.com", "Mailer: " . $_GET["prenom"] . " " . $_GET["nom"]);
-                        $mail->addAddress("Taslim.Tifaoui.Etu@univ-lemans.fr", "Taslim Tifaoui"); // Ajout du destinataire
-                        $mail->addAddress($_GET["adresseMail"], $_GET["nom"]);
-                        // Contenu du mail
-                        $mail->isHTML(true);
-                        $mail->Subject = "Formulaire de contact";
-                        $mail->Body = "Je vous remercie d'avoir pris contact. Merci " . $_GET["nom"] . "Votre nom est : " . $_GET["nom"] . "\n"
-                            . "Votre prénom est : " . $_GET["prenom"] . "\n"
-                            . "Votre adresse mail est : " . $_GET["adresseMail"] . "\n"
-                            . "Votre numéro de téléphone est : " . $_GET["phone"] . "\n"
-                            . "Votre message est : " . $_GET["message"] . "\n";
-
-                        $mail->CharSet = PHPMailer\PHPMailer\PHPMailer::CHARSET_UTF8;
-                        if ($mail->send() != false) {
-                            echo ("Le message électronique a été transmis.\n");
-                            /* header("Location: ./#contact");*/
-                        } else {
-                            echo ("Le message électronique n'a pas été transmis.\n");
-                            echo ("Mailer Error: " . $mail->ErrorInfo);
-                        }
-                    }
-                }
-                ?>
 
                 <button type="submit">Envoyer</button>
             </form>
