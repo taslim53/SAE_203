@@ -29,5 +29,49 @@ form{
     display: grid;
     row-gap: 20px;
 }
-
+form>div{
+    padding: 0 10px;
+}
+.form-column{
+    display: grid;
+}
+.form-center{
+    justify-self: center;
+}
+fieldset{
+    border:none;
+    display: grid;
+    row-gap: 15px;
+    padding: 0;
+}
+legend{
+    font-family: 'Courier New, Courier, monospace';
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+input{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10px;
+    padding: 5px;
+}
+.button-fully-rounded--black{
+    min-width:130px;
+    height: 40px;
+    color: #FFF;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3 ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #212529;
+}
+.butoon-fully-rounded--black:hover{
+    background: #fff;
+    color: #212529;
+}
 
