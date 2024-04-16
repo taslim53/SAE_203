@@ -42,7 +42,7 @@ header("Content-type: text/html; charset=utf-8");
 
                 <label for="message">Message :</label>
                 <textarea id="message" type="message" name="message" rows="5" cols="50" placeholder="Entrer votre message"></textarea>
-
+aa
                 <?php
                 if (isset($_GET["nom"]) && isset($_GET["prenom"]) && isset($_GET["adresseMail"]) && isset($_GET["phone"]) && isset($_GET["message"])) {
                     if (($_GET["nom"] != "") && ($_GET["prenom"] != "") && ($_GET["adresseMail"] != "") && ($_GET["phone"] != "") && ($_GET["message"] != "")) {
