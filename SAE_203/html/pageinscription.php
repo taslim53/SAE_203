@@ -5,6 +5,7 @@ header("Content-type: text/html; charset=utf-8");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,24 +25,23 @@ header("Content-type: text/html; charset=utf-8");
                 <h2>Inscrivez-vous !</h2>
                 <!--   <h6>N'hésitez pas à me contacter et je vous répondrais dans les plus brefs délais.</h6>-->
             </div>
-
-
             <form action="./index.php" method="get">
+                <fieldset>
+                    <legend>Te connaître</legend>
+                <div class="form-column">
+                    <label for="pseudo">Pseudo :</label>
+                    <input minlength="3" pattern="^[A-Za-z]+[\d\p{L}]{2,}" id="pseudo" type="text" name="pseudo" placeholder="Entrer votre pseudo" title="Le format attendu est de minimum 3 caractères" required="">
+                </div>
+                <div class="form-column">
+                    <label for="datNais">Date de naissance :</label>
+                    <input id="dateNais" type="date" name="dateNais" max="2012-01-01" placeholder="Entrer votre date de naissance" title="L'âge autorisé est de minimum 12 ans" required="">
+                </div>
+                <div class="form-column">
+                    <label for="message">Adresse mail :</label>
+                    <input id="email" type="email" name="email" placeholder="Entrer votre adresse mail"></input>
+                </div>
+                </fieldset>
 
-                <label for="nom">Nom de famille :</label>
-                <input id="nom" type="text" name="nom" placeholder="Entrer votre nom de famille" required="">
-
-                <label for="prenom">Prénom :</label>
-                <input id="prenom" type="prenom" name="prenom" placeholder="Entrer votre prénom" required="">
-
-                <label for="email">Adresse mail :</label>
-                <input id="email" type="email" name="adresseMail" placeholder="Entrer votre adresse mail" required="">
-
-                <label for="phone">Numéro de téléphone :</label>
-                <input id="phone" type="number" name="phone" placeholder="Entrer votre numéro de téléphone" required="">
-
-                <label for="message">Message :</label>
-                <textarea id="message" type="message" name="message" rows="5" cols="50" placeholder="Entrer votre message"></textarea>
 
                 <?php
                 if (isset($_GET["nom"]) && isset($_GET["prenom"]) && isset($_GET["adresseMail"]) && isset($_GET["phone"]) && isset($_GET["message"])) {
@@ -86,12 +86,9 @@ header("Content-type: text/html; charset=utf-8");
 
                 <button type="submit">Envoyer</button>
             </form>
-            <!--  <div>
-                    <img class="imageporte" src="images/porteouverte.jpg" alt="porteouverte">
-                </div>
-              !-->
         </div>
     </section>
-    
+
 </body>
+
 </html>
