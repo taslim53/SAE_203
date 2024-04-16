@@ -90,7 +90,7 @@ header("Content-type: text/html; charset=utf-8");
                 </div>
                 <div class="form-column">
                     <label for="mdp1">Ton mot de passe :</label>
-                    <input minlength="8" pattern="[A-a-\d]" id="mdp1" type="password" name="mdp1" placeholder="Entrer votre adresse mail"></input>
+                    <input minlength="8" pattern="[A-a-\d]" pattern="(" id="mdp1" type="password" name="mdp1" placeholder="Entrer votre adresse mail"></input>
                 </div>
                 <div class="form-column">
                     <label for="mdp2">Confirme ton mot de passe :</label>
