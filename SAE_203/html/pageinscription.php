@@ -56,7 +56,7 @@ error_reporting(E_ALL);
 header("Content-type: text/html; charset=utf-8");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -94,11 +94,11 @@ header("Content-type: text/html; charset=utf-8");
                 </div>
                 <div class="form-column">
                     <label for="mdp1">Ton mot de passe :</label>
-                    <input minlength="8" pattern="[A-a-\d]" pattern="(" id="mdp1" type="password" name="mdp1" placeholder="Entrer votre adresse mail"></input>
+                    <input minlength="8" pattern="[A-a-\d]" id="mdp1" type="password" name="mdp1" pattern="(?=.*\p{Lu}.*)(?=.*\p{L1})(?=.*\d.*){8,}" placeholder="Entrer votre adresse mail"></input>
                 </div>
                 <div class="form-column">
                     <label for="mdp2">Confirme ton mot de passe :</label>
-                    <input id="email" type="email" name="email" placeholder="Entrer votre adresse mail"></input>
+                    <input id="mdp2" pattern="(?=^.*\p{Lu}.*)(?=^.*\p{L1}.*)(?=^.*\d.*)(?=^.*{8,})" type="password" name="mdp2" placeholder="Retpe ton mot de passe"></input>
                 </div>
                 </fieldset>
 
