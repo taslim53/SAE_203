@@ -61,52 +61,81 @@ header("Content-type: text/html; charset=utf-8");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'inscription</title>
+    <title>Formulaire inscription</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="Application pour décourire des langues">
     <script src="scripts/index.js"></script>
-    <link rel="stylesheet" href="../css/pageinscription.css" type="text/css">
-</head>
+    <link rel="stylesheet" href="pageinscription.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <section id="inscription" class="inscription">
+    <div class="container">
+
+        <section id="inscription" class="inscription">
+
+            <!--   <h6>N'hésitez pas à me contacter et je vous répondrais dans les plus brefs délais.</h6>-->
+    </div>
+    <form action="./index.php" method="get">
         <div class="container">
             <div class="title">
                 <!--     <h6>Venez faire partie de l'équipe !</h6>-->
-                <h1>Envie de découvrir le monde ?</h1>
-                <h2>Inscrivez-vous !</h2>
-                <!--   <h6>N'hésitez pas à me contacter et je vous répondrais dans les plus brefs délais.</h6>-->
-            </div>
-            <form action="./index.php" method="get">
-                <fieldset>
-                <div class="form-column">
-                    <label for="pseudo">Pseudo :</label>
-                    <input minlength="3" pattern="^[A-Za-z]+[\d\p{L}]{2,}" id="pseudo" type="text" name="pseudo" placeholder="Entrer votre pseudo" title="Le format attendu est de minimum 3 caractères" required="">
+                <div class="titre">
+                    <h1>Envie de découvrir le monde ?</h1>
+                    <h2>Inscrivez-vous !</h2>
                 </div>
-                <div class="form-column">
-                    <label for="datNais">Date de naissance :</label>
-                    <input id="dateNais" type="date" name="dateNais" max="2012-01-01" placeholder="Entrer votre date de naissance" title="L'âge autorisé est de minimum 12 ans" required="">
-                </div>
-                <div class="form-column">
-                    <label for="message">Adresse mail :</label>
-                    <input id="email" type="email" name="email" placeholder="Entrer votre adresse mail"></input>
-                </div>
-                <div class="form-column">
-                    <label for="mdp1">Ton mot de passe :</label>
-                    <input minlength="8" pattern="[A-a-\d]" id="mdp1" type="password" name="mdp1" pattern="(?=.*\p{Lu}.*)(?=.*\p{L1})(?=.*\d.*){8,}" placeholder="Entrer votre adresse mail"></input>
-                </div>
-                <div class="form-column">
-                    <label for="mdp2">Confirme ton mot de passe :</label>
-                    <input id="mdp2" pattern="(?=^.*\p{Lu}.*)(?=^.*\p{L1}.*)(?=^.*\d.*)(?=^.*{8,})" type="password" name="mdp2" placeholder="Retpe ton mot de passe"></input>
-                </div>
-                </fieldset>
+               
+                    <div class="form-column">
+                        <label for="pseudo"></label>
+                        <input minlength="3" pattern="^[A-Za-z]+[\d\p{L}]{2,}" id="pseudo" type="text" name="pseudo"
+                            placeholder="Entrer votre pseudo" title="Le format attendu est de minimum 3 caractères"
+                            required="">
+                    </div>
+                    <div class="form-column">
+                        <label for="datNais"></label>
+                        <input id="dateNais" type="date" name="dateNais" max="2012-01-01"
+                            placeholder="Entrer votre date de naissance" title="L'âge autorisé est de minimum 12 ans"
+                            required="">
+                    </div>
+                    <div class="form-column">
+                        <label for="message"></label>
+                        <input id="email" type="email" name="email" placeholder="Entrer votre adresse mail"></input>
+                    </div>
+                    <div class="form-column">
+                        <label for="mdp1"></label>
+                        <input minlength="8" pattern="[A-a-\d]" id="mdp1" type="password" name="mdp1"
+                            pattern="(?=.*\p{Lu}.*)(?=.*\p{L1})(?=.*\d.*){8,}"
+                            placeholder="Entrer votre adresse mail"></input>
+                    </div>
+                    <div class="form-column">
+                        <label for="mdp2"></label>
+                        <input id="mdp2" pattern="(?=^.*\p{Lu}.*)(?=^.*\p{L1}.*)(?=^.*\d.*)(?=^.*{8,})" type="password"
+                            name="mdp2" placeholder="Retape ton mot de passe"></input>
+                    </div>
+                    <div class="form-column">
+                        <label for="mdp2"></label>
+                        <input class="button" type="submit" value="Envoyer"></input>
 
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
+                        <div class="mdpoublie">
+                            <a href="#">Mot de passe oublié</a>
+                        </div>
+                    </div>
+              
+
+               
+    </form>
+    </div>
     </section>
-
+    <section>
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+    </section>
+    </div>
 </body>
 
 </html>
