@@ -12,18 +12,49 @@ body {
     background: linear-gradient(45deg, #6B6054, #D5ECD4);
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Pompiere';
     background-color: #D5ECD4;
     color: #6B6054;
-    display: grid;
     height: 100%;
-    place-items: center;
     min-height: 100vh;
 }
 
-.container {
+/* NAVIGATION (ELOISE) */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    gap: 2%;
+}
+
+nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 16px;
+    color: #443f74;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 20px 8px 20px;
+    border-radius: 9999px;
+    transition: all 0.2s;
+}
+
+nav a:hover {
+    background-color: #443f74;
+    color: white;
+}
+
+
+ .container {
     position: relative;
 }
 
@@ -33,8 +64,8 @@ form {
     height: 470px;
     border-radius: 20px;
     border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    /*effet flou stylé*/
+    border-top: 1px solid rgba(255, 255, 255, .3); */
+    /*effet flou stylé */
     backdrop-filter: blur (10px);
     -webkit-backdrop-filter: blur (10px);
     -moz-backdrop-filter: blur (10px);
@@ -325,7 +356,23 @@ button {
 
 .demarrer {
     font-size: 30px;
-}
+} */
 /*---PAGE D'EXERCICE---/*
 
-/*---PAGE RÉCOMPENSE---/*
+/*---PAGE RÉCOMPENSE---/* 
+
+/*---PAGE NAVIGATION---*/
+
+nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 64px;
+    background-color: #cfcde4;
+    border-bottom: #bbb8da solid 1px;
+    z-index: 1;
+}
+
