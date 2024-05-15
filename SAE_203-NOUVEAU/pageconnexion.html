@@ -1,0 +1,108 @@
+<!-- <?php
+    // connexion.php
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
+	session_start();
+	header("Content-Type: text/html; charset=utf-8") ;
+	
+	require (__DIR__ . "/param.inc.php");
+	
+	require (__DIR__ . "/src/Membres/Administrer.php");
+	
+	$administrerMembres = new Membres\Administrer(MYHOST, MYDB, MYUSER, MYPASS) ; 
+	if(isset($_POST['formconnexion'])) {
+		try {
+			$user = $administrerMembres->connecter($_POST['mailconnect'], $_POST['mdpconnect']) ;
+			$_SESSION['id_membre'] = $user['id_membre'];
+			$_SESSION['pseudo'] = $user['pseudo'];
+			$_SESSION['mail'] = $user['mail'];
+			header("Location: profil.php");
+		} 
+		catch (Exception $e) {
+			$erreur = $e->getMessage() ;
+		}
+	}
+?> -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire inscription</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Application pour décourire des langues">
+    <script src="scripts/index.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Me connecter</a>
+                </li>
+                <li>
+                    <a href="index.html">Mon profil</a>
+                </li>
+                <li>
+                    <a href=""></a>
+                    </li>
+        </nav>
+
+
+    </header>
+    <main>
+        <form action="./index.php" method="get">
+            <div class="container">
+                <div class="title">
+                    <div class="titre">
+                        <h1>Connectez-vous !</h1>
+                    </div>
+
+                    <div class="form-column">
+                        <label for="pseudo"></label>
+                        <input minlength="3" placeholder="Ton pseudo" pattern="^[A-Za-z]+[\d\p{L}]{2,}" type="text"
+                            name="pseudo" id="pseudo" title="Le format attendu est de minimum 3 caractères">
+                    </div>
+                    <div class="form-column">
+                        <label for="mdp1"></label>
+                        <input minlength="8" pattern="[A-a-\d]" type="password" name="mdp1" id="mdp1"
+                            pattern="(?=.*\p{Lu}.*)(?=.*\p{L1})(?=.*\d.*){8,}" placeholder="Ton mot de passe">
+                    </div>
+
+                    <div class="form-column">
+                        <label for="mdp2"></label>
+                        <input class="button" type="submit" value="Nous rejoindre !"></input>
+
+                        <div class="mdpoublie">
+                            <a href="#">Mot de passe oublié</a>
+                        </div>
+                    </div>
+
+                    <section>
+                        <div class="drop drop-1"></div>
+                        <div class="drop drop-2"></div>
+                        <div class="drop drop-3"></div>
+                        <div class="drop drop-4"></div>
+                        <div class="drop drop-5"></div>
+                    </section>
+                </div>
+<!-- <?php
+	if(isset($erreur)) {
+?>
+				<div class="row"></div>
+					<p class="colspan-2 error"><?php echo($erreur) ; ?></p>
+				</div>	
+<?php
+	}
+?> -->
+			</form>
+		</main>
+	</body>
+</html>
